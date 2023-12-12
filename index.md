@@ -33,12 +33,17 @@
 		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
 		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
 		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
-embedded_svc.settings.extraPrechatFormDetails = [{
-  "label": "visitor URL",
-  "value": window.location.href,
-  "displayToAgent": true,
-  "transcriptFields" : ["visitor_url__c"]
-}
+		
+		embedded_svc.settings.extraPrechatFormDetails = [{
+  		"label": "visitor URL",
+  		"value": function getCookie(name) {
+  			const value = `; ${document.cookie}`;
+ 			const parts = value.split(`; ${name}=`);
+  			if (parts.length === 2) return parts.pop().split(';').shift();
+			},
+  		"displayToAgent": true,
+  		"transcriptFields" : ["visitor_url__c"]
+		}
  ];
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
