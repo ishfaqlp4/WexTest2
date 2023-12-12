@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+		document.cookie.split('; ').filter(function(c) {return /geo=/.test(c)})
 	</head>
   <body>
     <style type='text/css'>
