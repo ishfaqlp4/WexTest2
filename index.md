@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-		
+	document.cookie = "firstName=Christopher";	
 	</head>
   <body>
     <style type='text/css'>
