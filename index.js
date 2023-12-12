@@ -1,1 +1,1 @@
-document.cookie = "firstName=Christopher";
+document.cookie = "name=" + encodeURIComponent("Christopher Columbus");
