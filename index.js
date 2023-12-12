@@ -4,9 +4,7 @@
 		
 	</head>
   <body>
-    document.cookie = "firstName=Christopher; path=/";
-	  <style type='text/css'>
-	.embeddedServiceHelpButton .helpButton .uiButton {
+   	.embeddedServiceHelpButton .helpButton .uiButton {
 		background-color: #005290;
 		font-family: "Arial", sans-serif;
 	}
