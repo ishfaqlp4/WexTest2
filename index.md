@@ -37,7 +37,7 @@
 		
 		embedded_svc.settings.extraPrechatFormDetails = [{
   		"label": "visitor URL",
-  		"value": document.cookie.split('; ').filter(function(c) {return /BrowserId=/.test(c)}),
+  		"value": window.location.href,
   		"displayToAgent": true,
   		"transcriptFields" : ["visitor_url__c"]
 		}
