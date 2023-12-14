@@ -41,16 +41,17 @@ liveagent.init('https://d.la3-c1-ia6.salesforceliveagent.com/chat', '572Ho000000
 		  var cookieValue;
     console.log(x);
 		  x.split(';').forEach(function(el) {
-     console.log(y);
+     
 		   var y = el.split('=');
-		   if(y[0]==='liveagent_sid') cookieValue= y[1];
+		   console.log(y);
       console.log(y[1]);
+      cookieValue[y[0]] = y[1];
 		   });
       console.log(cookieValue);
 		
 		embedded_svc.settings.extraPrechatFormDetails = [{
   		"label": "visitor URL",
-  		"value":cookieValue,
+  		"value":cookieValue["liveagent_sid"],
   		"displayToAgent": true,
   		"transcriptFields" : ["visitor_url__c"]
 		}
