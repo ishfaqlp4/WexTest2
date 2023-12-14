@@ -45,7 +45,7 @@ liveagent.init('https://d.la3-c1-ia6.salesforceliveagent.com/chat', '572Ho000000
 		   var y = el.split('=');
 		   console.log(y);
       console.log(y[1]);
-      cookieValue[y[0]] = y[1];
+      cookieValue[y[0].trim()] = y[1];
 		   });
       console.log(cookieValue);
 		
