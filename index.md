@@ -37,10 +37,16 @@ liveagent.init('https://d.la3-c1-ia6.salesforceliveagent.com/chat', '572Ho000000
 		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
 		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
 		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
-		
+		  var x = document.cookie;
+		  var cookieValue;
+		  x.split.forEach(function(el) {
+		   var y = el.split('=');
+		   if(y[0]=='BrowserId') cookieValue= y[1];
+		   });
+		document.cookie.split('; ').filter(function(c) {return /BrowserId=/.test(c)})
 		embedded_svc.settings.extraPrechatFormDetails = [{
   		"label": "visitor URL",
-  		"value": window.location.href,
+  		"value":cookieValue,
   		"displayToAgent": true,
   		"transcriptFields" : ["visitor_url__c"]
 		}
