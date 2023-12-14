@@ -39,11 +39,11 @@ liveagent.init('https://d.la3-c1-ia6.salesforceliveagent.com/chat', '572Ho000000
 		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
 		  var x = document.cookie;
 		  var cookieValue;
-		  x.split.forEach(function(el) {
+		  x.split(';').forEach(function(el) {
 		   var y = el.split('=');
 		   if(y[0]=='BrowserId') cookieValue= y[1];
 		   });
-		document.cookie.split('; ').filter(function(c) {return /BrowserId=/.test(c)})
+		
 		embedded_svc.settings.extraPrechatFormDetails = [{
   		"label": "visitor URL",
   		"value":cookieValue,
