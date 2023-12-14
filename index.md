@@ -53,7 +53,7 @@ liveagent.init('https://d.la3-c1-ia6.salesforceliveagent.com/chat', '572Ho000000
   		"label": "visitor URL",
   		"value":cookieValue["liveagent_sid"],
   		"displayToAgent": true,
-  		"transcriptFields" : ["visitor_url__c"]
+  		"transcriptFields" : ["Cookie_Value__c"]
 		}
  ];
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
