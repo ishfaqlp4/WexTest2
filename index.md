@@ -38,7 +38,7 @@ liveagent.init('https://d.la3-c1-ia6.salesforceliveagent.com/chat', '572Ho000000
 		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
 		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
 		  var x = document.cookie;
-		  var cookieValue;
+		  var cookieValue={};
     console.log(x);
 		  x.split(';').forEach(function(el) {
      
