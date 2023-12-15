@@ -48,7 +48,7 @@
 		
 		embedded_svc.settings.extraPrechatFormDetails = [{
   		"label": "visitor URL",
-  		"value":cookieValue["liveagent_sid"],
+  		"value":cookieValue["liveagent_ptid"],
   		"displayToAgent": true,
   		"transcriptFields" : ["Cookie_Value__c"]
 		}
