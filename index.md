@@ -55,14 +55,15 @@ var cookieValue='';
 		     console.log(cookieSplit);
 		     console.log(cookieSplit[1]);
 		     // cookieValue[cookieSplit[0].trim()] = cookieSplit [1];
-       		//Extract values for specific cookies	
-	 	if( cookieSplit[0].trim()==='wex_cc_persistent'){
+       		//Extract values for specific cookies
+	 	// First the code checks for cookieValue in 'wex_cc_session' and if empty it then checks in 'wex_cc_persistent'.
+	 	if( cookieSplit[0].trim()==='wex_cc_session'){
 		       	if(cookieSplit[1]){
 		     		 cookieValue = cookieSplit[1].split('|')[0];
 		       	}
       
       		}
-		if(cookieSplit[0].trim()==='wex_cc_session') {
+		if(cookieSplit[0].trim()==='wex_cc_persistent') {
  		if(cookieSplit[1]){
      		 	cookieValue = cookieSplit[1].split('|')[0];
       		 }
@@ -70,6 +71,11 @@ var cookieValue='';
  	  	//log extracted cookie value
     		console.log(cookieValue);
 	});
+ 	//Returning "No Coupon Found" if both cookies are empty
+  	if (!cookieValue) {
+   		cookieValue = "No coupon found";
+	}
+   
       
 		//Configure extra pre-chat form details with the extracted cookie value
 		embedded_svc.settings.extraPrechatFormDetails = [{
