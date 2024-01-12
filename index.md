@@ -41,15 +41,26 @@ liveagent.init('https://d.la3-c1-ia6.salesforceliveagent.com/chat', '572Ho000000
     document.cookie = "wex_cc_session=H1F|W7CP|EDH4|M41728";
     document.cookie = "wex_cc_persistent=H1F|W7CP|EDH4|M41728";
     var x = document.cookie;
-		  var cookieValue={};
+ var cookieValue='';
     console.log(x);
 		  x.split(';').forEach(function(el) {
      
-		   var y = el.split('=');
-		   console.log(y);
-      console.log(y[1]);
-      cookieValue[y[0].trim()] = y[1];
-		   });
+		     var y = el.split('=');
+		     console.log(y);
+		      console.log(y[1]);
+		     // cookieValue[y[0].trim()] = y[1];
+       if( y[0].trim()=='wex_cc_persistent'){
+	       	if(!y[1]){
+	     		 cookieValue = y[1].split('|')[0];
+	       	}
+      
+       }
+	if(y[0].trim()=='wex_cc_session') {
+ 		if(!y[1]){
+     		 cookieValue = y[1].split('|')[0];
+      		 }
+	}		   
+	});
       console.log(cookieValue);
 		
 		embedded_svc.settings.extraPrechatFormDetails = [{
