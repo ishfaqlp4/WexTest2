@@ -39,7 +39,7 @@ liveagent.init('https://d.la3-c1-ia6.salesforceliveagent.com/chat', '572Ho000000
 		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
 		  
 //manually adding coupon cookies to the site
-    //document.cookie = "wex_cc_session=H1F|W7CP|EDH4|M41728";
+    document.cookie = "wex_cc_session=";
     document.cookie = "wex_cc_persistent=H1F|W7CP|EDH4|M41728";
 
 
