@@ -50,13 +50,13 @@ liveagent.init('https://d.la3-c1-ia6.salesforceliveagent.com/chat', '572Ho000000
 		      console.log(y[1]);
 		     // cookieValue[y[0].trim()] = y[1];
        		if( y[0].trim()==='wex_cc_persistent'){
-		       	if(!y[1]){
+		       	if(y[1]){
 		     		 cookieValue = y[1].split('|')[0];
 		       	}
       
       		}
 		if(y[0].trim()==='wex_cc_session') {
- 		if(!y[1]){
+ 		if(y[1]){
      		 	cookieValue = y[1].split('|')[0];
       		 }
 		}
