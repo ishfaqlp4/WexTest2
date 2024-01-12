@@ -37,36 +37,41 @@ liveagent.init('https://d.la3-c1-ia6.salesforceliveagent.com/chat', '572Ho000000
 		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
 		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
 		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
-		  
-//manually adding coupon cookies to the site
+
+// Wex Coupon Code capture code from Einstein Bot
+//manually setting coupon cookies to the site... do not add this to deployment code!!
     document.cookie = "wex_cc_session=W7CP|M41728";
     document.cookie = "wex_cc_persistent=H1F|W7CP|EDH4|M41728";
 
-
-var x = document.cookie;
+//Retrieve all cookies
+var allCookies = document.cookie;
 var cookieValue='';
-    console.log(x);
-		  x.split(';').forEach(function(el) {
-     
-		     var y = el.split('=');
-		     console.log(y);
-		      console.log(y[1]);
-		     // cookieValue[y[0].trim()] = y[1];
-       		if( y[0].trim()==='wex_cc_persistent'){
-		       	if(y[1]){
-		     		 cookieValue = y[1].split('|')[0];
+   //log all cookies
+    console.log(allCookies);
+    
+	//Split cookies and process each one	 
+	allCookies.split(';').forEach(function(cookie) {
+     		var cookieSplit = cookie.split('=');
+		     console.log(cookieSplit);
+		     console.log(cookieSplit[1]);
+		     // cookieValue[cookieSplit[0].trim()] = cookieSplit [1];
+       		//Extract values for specific cookies	
+	 	if( cookieSplit[0].trim()==='wex_cc_persistent'){
+		       	if(cookieSplit[1]){
+		     		 cookieValue = cookieSplit[1].split('|')[0];
 		       	}
       
       		}
-		if(y[0].trim()==='wex_cc_session') {
- 		if(y[1]){
-     		 	cookieValue = y[1].split('|')[0];
+		if(cookieSplit[0].trim()==='wex_cc_session') {
+ 		if(cookieSplit[1]){
+     		 	cookieValue = cookieSplit[1].split('|')[0];
       		 }
 		}
- 	  console.log(cookieValue);
+ 	  	//log extracted cookie value
+    		console.log(cookieValue);
 	});
-      console.log(cookieValue);
-		
+      
+		//Configure extra pre-chat form details with the extracted cookie value
 		embedded_svc.settings.extraPrechatFormDetails = [{
   		"label": "Cookie Value",
   		"value": cookieValue,
@@ -74,7 +79,8 @@ var cookieValue='';
   		"transcriptFields" : ["Cookie_Value__c"]
 		}
  ];
-		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		
+  		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
 
 		embedded_svc.init(
