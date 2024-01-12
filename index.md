@@ -65,7 +65,7 @@ liveagent.init('https://d.la3-c1-ia6.salesforceliveagent.com/chat', '572Ho000000
 		
 		embedded_svc.settings.extraPrechatFormDetails = [{
   		"label": "visitor URL",
-  		"value":cookieValue["liveagent_sid"],
+  		"value": cookieValue,
   		"displayToAgent": true,
   		"transcriptFields" : ["Cookie_Value__c"]
 		}
