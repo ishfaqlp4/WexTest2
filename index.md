@@ -40,7 +40,7 @@ liveagent.init('https://d.la3-c1-ia6.salesforceliveagent.com/chat', '572Ho000000
 
 // Wex Coupon Code capture code from Einstein Bot
 //manually setting coupon cookies to the site... do not add this to deployment code!!
-    document.el = "wex_cc_session=W7CP|M41728";
+    document.el = "wex_cc_session=EDH2|W7CP|M41728";
     document.el = "wex_cc_persistent=H1F|W7CP|EDH4|M41728";
 
 //Retrieve all cookies
