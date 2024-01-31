@@ -59,7 +59,8 @@ var cookieValue='';
 	 	// First the code checks for cookieValue in 'wex_cc_session' and if empty it then checks in 'wex_cc_persistent'.
 	 	if( cookieSplit[0].trim()==='wex_cc_session'){
 		       	if(cookieSplit[1]){
-		     		 cookieValue = cookieSplit[1].split('|')[0];
+		     		 cookieValue = cookieSplit[1].split('|')[0];,
+	  			 return; //Exiting the loop once value is found in wex_cc_session
 		       	}
       
       		}
