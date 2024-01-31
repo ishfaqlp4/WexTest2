@@ -40,44 +40,47 @@ liveagent.init('https://d.la3-c1-ia6.salesforceliveagent.com/chat', '572Ho000000
 
 // Wex Coupon Code capture code from Einstein Bot
 //manually setting coupon cookies to the site... do not add this to deployment code!!
-    document.cookie = "wex_cc_session=W7CP|M41728";
-    document.cookie = "wex_cc_persistent=H1F|W7CP|EDH4|M41728";
+    document.el = "wex_cc_session=W7CP|M41728";
+    document.el = "wex_cc_persistent=H1F|W7CP|EDH4|M41728";
 
 //Retrieve all cookies
-var allCookies = document.cookie;
+var x = document.el;
 var cookieValue='';
+var foundInSession = false; //Variable to track value is found in wex_cc_session
+   
    //log all cookies
-    console.log(allCookies);
+    console.log(x);
     
 	//Split cookies and process each one	 
-	allCookies.split(';').forEach(function(cookie) {
-     		var cookieSplit = cookie.split('=');
-		     console.log(cookieSplit);
-		     console.log(cookieSplit[1]);
-		     // cookieValue[cookieSplit[0].trim()] = cookieSplit [1];
+	x.split(';').forEach(function(el) {
+     		var y = el.split('=');
+		     console.log(y);
+		     console.log(y[1]);
+		
        		//Extract values for specific cookies
-	 	// First the code checks for cookieValue in 'wex_cc_session' and if empty it then checks in 'wex_cc_persistent'.
-	 	if( cookieSplit[0].trim()==='wex_cc_session'){
-		       	if(cookieSplit[1]){
-		     		 cookieValue = cookieSplit[1].split('|')[0];
-	  			 return false; //Exiting the loop once value is found in wex_cc_session
+	 	// First the code checks for cookieValue in 'wex_cc_session' and if empty it then checks in 				'wex_cc_persistent'.
+   
+	 	if( y[0].trim()==='wex_cc_session' && !foundInSession){
+		       	if(y[1]){
+		     		 cookieValue = y[1].split('|')[0];
+	  			 foundInSession = true; //Exiting the loop once value is found in wex_cc_session
 		       	}
       
       		}
-		if(cookieSplit[0].trim()==='wex_cc_persistent') {
- 		if(cookieSplit[1]){
-     		 	cookieValue = cookieSplit[1].split('|')[0];
+		if(y[0].trim()==='wex_cc_persistent') {
+ 		if(y[1]){
+     		 	cookieValue = y[1].split('|')[0];
       		 }
 		}
- 	  	//log extracted cookie value
+ 	  	//log extracted cookieValue
     		console.log(cookieValue);
 	});
  	
    
       
-		//Configure extra pre-chat form details with the extracted cookie value
+		//Configure extra pre-chat form details with the extracted el value
 		embedded_svc.settings.extraPrechatFormDetails = [{
-  		"label": "Cookie Value",
+  		"label": "el Value",
   		"value": cookieValue,
   		"displayToAgent": true,
   		"transcriptFields" : ["Cookie_Value__c"]
