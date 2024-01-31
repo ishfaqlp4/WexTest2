@@ -71,10 +71,7 @@ var cookieValue='';
  	  	//log extracted cookie value
     		console.log(cookieValue);
 	});
- 	//Returning "No Coupon Found" if both cookies are empty
-  	if (!cookieValue) {
-   		cookieValue = "No coupon found";
-	}
+ 	
    
       
 		//Configure extra pre-chat form details with the extracted cookie value
