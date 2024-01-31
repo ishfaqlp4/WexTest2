@@ -40,11 +40,11 @@ liveagent.init('https://d.la3-c1-ia6.salesforceliveagent.com/chat', '572Ho000000
 
 // Wex Coupon Code capture code from Einstein Bot
 //manually setting coupon cookies to the site... do not add this to deployment code!!
-    document.el = "wex_cc_session=EDH2|W7CP|M41728";
-    document.el = "wex_cc_persistent=H1F|W7CP|EDH4|M41728";
+    document.cookie = "wex_cc_session=EDH2|W7CP|M41728";
+    document.cookie = "wex_cc_persistent=H1F|W7CP|EDH4|M41728";
 
 //Retrieve all cookies
-var x = document.el;
+var x = document.cookie;
 var cookieValue='';
 var foundInSession = false; //Variable to track value is found in wex_cc_session
    
@@ -78,9 +78,9 @@ var foundInSession = false; //Variable to track value is found in wex_cc_session
  	
    
       
-		//Configure extra pre-chat form details with the extracted el value
+		//Configure extra pre-chat form details with the extracted cookie value
 		embedded_svc.settings.extraPrechatFormDetails = [{
-  		"label": "el Value",
+  		"label": "Cookie Value",
   		"value": cookieValue,
   		"displayToAgent": true,
   		"transcriptFields" : ["Cookie_Value__c"]
